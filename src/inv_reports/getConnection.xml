@@ -1,0 +1,24 @@
+<?xml version="1.0"?><!-- iReport connections -->
+<iReportConnectionSet>
+	<iReportConnection name="Empty datasource" connectionClass="com.jaspersoft.ireport.designer.connection.JREmptyDatasourceConnection">
+		<connectionParameter name="records"><![CDATA[1]]></connectionParameter>
+	</iReportConnection>
+	<iReportConnection name="Sample Database (HSQLDB test)" connectionClass="com.jaspersoft.ireport.samples.db.SampleDatabaseConnection">
+		<connectionParameter name="ServerAddress"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="SavePassword"><![CDATA[true]]></connectionParameter>
+		<connectionParameter name="Url"><![CDATA[jdbc:hsqldb:hsql://127.0.0.1/]]></connectionParameter>
+		<connectionParameter name="JDBCDriver"><![CDATA[org.hsqldb.jdbcDriver]]></connectionParameter>
+		<connectionParameter name="Database"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="Password"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="Username"><![CDATA[sa]]></connectionParameter>
+	</iReportConnection>
+	<iReportConnection name="getConnection" connectionClass="com.jaspersoft.ireport.designer.connection.JDBCConnection">
+		<connectionParameter name="ServerAddress"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="SavePassword"><![CDATA[true]]></connectionParameter>
+		<connectionParameter name="Url"><![CDATA[jdbc:mysql://localhost/inventory_gtpndn_ana]]></connectionParameter>
+		<connectionParameter name="JDBCDriver"><![CDATA[com.mysql.jdbc.Driver]]></connectionParameter>
+		<connectionParameter name="Database"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="Password"><![CDATA[]]></connectionParameter>
+		<connectionParameter name="Username"><![CDATA[root]]></connectionParameter>
+	</iReportConnection>
+</iReportConnectionSet>

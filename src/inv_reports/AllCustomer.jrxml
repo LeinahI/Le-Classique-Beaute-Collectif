@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AllCustomer" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b15fd2a-1cc5-4007-aa9e-0a3aa2c4611b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     customer.`cust_ID` AS customer_cust_ID,
+     customer.`cust_NAME` AS customer_cust_NAME,
+     customer.`cust_EMAIL` AS customer_cust_EMAIL,
+     customer.`cust_CPNUM` AS customer_cust_CPNUM,
+     customer.`cust_RCV` AS customer_cust_RCV
+FROM
+     `customer` customer]]>
+	</queryString>
+	<field name="customer_cust_ID" class="java.lang.Integer"/>
+	<field name="customer_cust_NAME" class="java.lang.String"/>
+	<field name="customer_cust_EMAIL" class="java.lang.String"/>
+	<field name="customer_cust_CPNUM" class="java.lang.String"/>
+	<field name="customer_cust_RCV" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="085f1d4f-b957-41ec-a6a8-21b990fe7da1"/>
+				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="ab05bec4-ce19-4bb9-aebb-130de74e9cb8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Le Classique Beauté Collectif]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="46" width="200" height="22" uuid="6e7fd86d-8065-4017-8b1c-daf0f2e017db"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Customer Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="53b4b857-d770-4fc5-b5ff-ddb72d10a900"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="36" y="19" width="75" height="15" uuid="89567ba6-c048-4401-a204-b0ca3cabd17b"/>
+				<text><![CDATA[Customer ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="121" y="19" width="78" height="15" uuid="d8ad3645-5439-4364-86e5-fee29b8282c0"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="211" y="19" width="111" height="15" uuid="d23525d7-797a-41c9-b06f-8e1b8677cbea"/>
+				<text><![CDATA[email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="89" height="15" uuid="c6e9adfd-dbb6-4443-a21c-b82d3e64edb5"/>
+				<text><![CDATA[Phone Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="440" y="19" width="75" height="15" uuid="0fc5d570-d7be-49ab-b19e-1d49a5b2cf41"/>
+				<text><![CDATA[Receivables]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="26" width="555" height="1" uuid="69d466a0-d93e-4d47-90e0-d6004ae932f7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="36" y="0" width="75" height="26" forecolor="#FF0033" uuid="df6be677-e246-46df-8194-63dbe3ab9d77"/>
+				<textFieldExpression><![CDATA[$F{customer_cust_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="121" y="0" width="78" height="26" uuid="81fa070e-9118-4d61-9447-76e1f4fbf2cc"/>
+				<textFieldExpression><![CDATA[$F{customer_cust_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="211" y="0" width="111" height="26" uuid="a2db2f96-6aa0-4fea-9cd9-ed4349abe44d"/>
+				<textFieldExpression><![CDATA[$F{customer_cust_EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="333" y="0" width="89" height="26" uuid="691d7d7e-11b3-4c56-bb2f-7f6591e54227"/>
+				<textFieldExpression><![CDATA[$F{customer_cust_CPNUM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="440" y="0" width="75" height="26" uuid="c8d2cbd2-19ce-4018-ab24-3b4b7992ee38"/>
+				<textFieldExpression><![CDATA[$F{customer_cust_RCV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="7cd3fbda-6b3e-4e22-8b26-e4c756ff1592"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="5e4dd3d0-d1d6-4811-96a8-c11e18560c99"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="0ce22da6-3e80-414c-80e1-a98875f9efef"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="a9e0e0c0-813e-4d6c-8414-0d34123568ce"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

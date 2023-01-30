@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="print" language="groovy" pageWidth="226" pageHeight="360" columnWidth="222" leftMargin="2" rightMargin="2" topMargin="1" bottomMargin="1" isIgnorePagination="true" uuid="5d57f331-de5c-46b2-b840-69a35d1b10e5">
+	<property name="ireport.zoom" value="3.8974342000000437"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="inv_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cart.`cart_id` AS cart_cart_id,
+     cart.`INID` AS cart_INID,
+     cart.`Product_Name` AS cart_Product_Name,
+     cart.`upc` AS cart_upc,
+     cart.`cart_qty` AS cart_cart_qty,
+     cart.`unit_price` AS cart_unit_price,
+     cart.`total_price` AS cart_total_price,
+     sales.`sales_id` AS sales_sales_id,
+     sales.`INID` AS sales_INID,
+     sales.`Cust_ID` AS sales_Cust_ID,
+     sales.`Cust_NAME` AS sales_Cust_NAME,
+     sales.`total_qty` AS sales_total_qty,
+     sales.`total_bill` AS sales_total_bill,
+     sales.`sales_status` AS sales_sales_status,
+     sales.`sales_balance` AS sales_sales_balance
+FROM
+     `cart` cart INNER JOIN `sales` sales ON cart.`INID` =  sales.`INID` WHERE
+cart.`INID` = $P{inv_id}]]>
+	</queryString>
+	<field name="cart_cart_id" class="java.lang.Integer"/>
+	<field name="cart_INID" class="java.lang.Integer"/>
+	<field name="cart_Product_Name" class="java.lang.String"/>
+	<field name="cart_upc" class="java.lang.Integer"/>
+	<field name="cart_cart_qty" class="java.lang.String"/>
+	<field name="cart_unit_price" class="java.lang.String"/>
+	<field name="cart_total_price" class="java.lang.String"/>
+	<field name="sales_sales_id" class="java.lang.Integer"/>
+	<field name="sales_INID" class="java.lang.Integer"/>
+	<field name="sales_Cust_ID" class="java.lang.Integer"/>
+	<field name="sales_Cust_NAME" class="java.lang.String"/>
+	<field name="sales_total_qty" class="java.lang.String"/>
+	<field name="sales_total_bill" class="java.lang.String"/>
+	<field name="sales_sales_status" class="java.lang.String"/>
+	<field name="sales_sales_balance" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="11" y="17" width="200" height="17" uuid="2ab2178f-6904-423d-b44f-6bc3eae67cce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Le Classique Beauté Collectif]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="11" y="37" width="200" height="31" uuid="c5a9c91d-4238-4395-870f-aecee8388ff1"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[LE COLLECTIF BEAUTÉ CLASSIQUE TAGAYTAY
+HILLCREST PLAZA, EMILIO AGUINALDO HIGHWAY
+SILANG JUNCTION SOUTH, TAGAYTAY CITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="11" y="73" width="200" height="15" uuid="8c60999a-0b87-4202-ba54-9749e6477144"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INVOICE ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="11" y="88" width="200" height="15" uuid="40760f01-84f1-4c50-ac16-71803d860809"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cart_INID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="111" y="0" width="46" height="15" uuid="4fb25a90-1599-4f5f-b37e-0d1dc9e4c837"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[unit price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="163" y="0" width="53" height="15" uuid="91b47c4b-7a78-4773-a904-d2b05f060d09"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[total price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="6" y="0" width="70" height="15" uuid="97f19674-a8ec-4d8a-963d-6806ab05b2af"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="80" y="0" width="27" height="15" uuid="11bc90fb-17b9-48a7-9de4-635daee58757"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="80" y="1" width="27" height="15" uuid="1b85b139-ca55-47d1-8d7b-a87d6bc274b8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cart_cart_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="1" width="46" height="15" uuid="1eb45c3d-23d9-4e25-a4c3-798cc7f7563c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cart_unit_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="6" y="1" width="70" height="24" uuid="6a33af1c-3b40-4b94-bedf-f7b8d6b05567"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cart_Product_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="163" y="1" width="53" height="15" uuid="36888ede-b655-4ce4-a12c-ff404d580a14"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cart_total_price}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="6" y="25" width="210" height="1" uuid="2404f4e4-1c91-4f75-8350-9548159a3215"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="6" y="36" width="210" height="28" uuid="b4e162db-7ed9-4c98-bbbe-132773769269"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[THIS IS YOUR OFFICIAL RECEIPT
+THIS RECEIPT IS VALID FOR THREE(3) YEARS
+FROM DATE OF THE PERMIT TO USE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="99" y="4" width="46" height="15" uuid="9080667b-8f38-4f29-9929-ca56939af020"/>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="78" y="20" width="67" height="15" uuid="8fb3b46e-278a-4669-953d-47b3fa27e0b3"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[CHANGE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="4" width="69" height="15" uuid="149a32a5-ba6e-47c1-9234-cdd0d099af26"/>
+				<textFieldExpression><![CDATA[$F{sales_total_bill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="20" width="69" height="15" uuid="0e7cde9f-df28-4640-beb1-a480c1fd4f6f"/>
+				<textFieldExpression><![CDATA[$F{sales_sales_balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="4" y="1" width="141" height="13" uuid="8b10273c-5787-4241-a2cc-57500ca1a07f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
